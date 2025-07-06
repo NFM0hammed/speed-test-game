@@ -13,4 +13,4 @@ npx tsc --init
 - Watch all files<br>
 npm run watch
 
-<img width="1353" height="849" alt="Image" src="https://github.com/user-attachments/assets/84b2cdd3-5ff2-49ab-801b-534adccc83e0" />
+<img width="1353" height="849" alt="Image" src="https://github.com/user-attachments/assets/d0a5849d-a7b4-4ddd-81ff-17c744380c6f" />
