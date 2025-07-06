@@ -1,0 +1,7 @@
+@use './variables' as *;
+
+@mixin boxStyle($bgColor, $pd: null, $boxShadow: null) {
+    background-color: $bgColor;
+    padding: $pd;
+    box-shadow: $boxShadow;
+}

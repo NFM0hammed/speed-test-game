@@ -1,0 +1,10 @@
+include /helpers/variables.pug
+
+doctype html
+html(lang="en")
+    include /layouts/head.pug
+    body
+        block content
+
+        script(src="./scripts/utils/levelsData.js")
+        script(src="./scripts/main.js")

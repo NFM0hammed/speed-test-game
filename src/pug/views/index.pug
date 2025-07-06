@@ -1,0 +1,30 @@
+extends /app.pug 
+
+block content 
+    .game-over 
+        button Unfortunately, Try again
+    .game-win 
+        button Congratulations, You are win
+    .typing-speed-test
+        .container 
+            h1.main-title= mainTitle
+            .board-game
+                .start-game 
+                    button Start
+                .info
+                    .number-of-texts 
+                        span Number of texts: 
+                        span
+                    .levels 
+                        - for(let i = 0; i < levelsLength; i++)
+                            span(class= levelsClasses[i])= levels[i]
+                    .time 
+                        span
+                .text 
+                    p 
+                .type-text 
+                    .input(contenteditable="true")
+            footer 
+                p
+                    | Created by  
+                    a(href="https://github.com/NFM0hammed") NFM0hammed

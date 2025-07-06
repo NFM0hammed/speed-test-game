@@ -1,0 +1,158 @@
+@use './helpers/variables' as *;
+@use './helpers/mixins' as *;
+@use './helpers/placeholders' as *;
+
+.game-over {
+    @extend %msg;
+    button {
+        @extend %msg-button;
+        background-color: $redColor;
+    }
+}
+.game-win {
+    @extend %msg;
+    button {
+        @extend %msg-button;
+        background-color: $mainColor;
+    }
+}
+
+.typing-speed-test {
+    @include boxStyle($whiteColor);
+    width: 1000px;
+    max-width: 100%;
+    text-align: center;
+    margin: 50px auto;
+    border-top: 5px solid $mainColor;
+    box-shadow: $boxShadow;
+    .main-title {
+        @include boxStyle($mainColor, 10px);
+        color: $whiteColor;
+        font-weight: 600;
+    }
+    .board-game {
+        @include boxStyle($bodyBgColor, 20px);
+        margin: {
+            top: 50px;
+            bottom: 50px;
+        };
+        box-shadow: $boxShadow;
+        .start-game {
+            button {
+                background-color: $mainColor;
+                color: $whiteColor;
+                width: 100%;
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+            }
+        }
+        .info {
+            @include boxStyle($whiteColor, 20px);
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0;
+            border: {
+                left: 5px solid $mainColor;
+                right: 5px solid $mainColor;
+            };
+            box-shadow: $boxShadow;
+            .number-of-texts {
+                flex-basis: 25%;
+                span:first-of-type {
+                    color: $mainColor;
+                    font-weight: 600;
+                }
+            }
+            .levels {
+                @include boxStyle($bodyBgColor, 20px);
+                flex: 1;
+                font-weight: 600;
+                span {
+                    margin: 0 20px;
+                    &.active {
+                        color: $redColor;
+                    }
+                    &.done {
+                        color: #00b300;
+                    }
+                    @media(#{$largeDevice}) {
+                        margin: 20px 0;
+                    }
+                }
+                @media(#{$largeDevice}) {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 20px 0;
+                }
+            }
+            .time {
+                flex-basis: 25%;
+                color: $mainColor;
+                font-weight: 600;
+                span {
+                    display: inline-block;
+                    background-color: $bodyBgColor;
+                    width: 45px;
+                    padding: 10px;
+                    border-radius: 50%;
+                    border: 2px dashed;
+                    &.time-alert {
+                        color: $redColor;
+                    }
+                }
+            }
+            @media(#{$largeDevice}) {
+                flex-direction: column;
+                align-items: normal;
+            }
+        }
+        .text {
+            @include boxStyle($whiteColor, 20px);
+            margin: 30px 0;
+            box-shadow: $boxShadow;
+            p {
+                text-align: justify;
+                font-weight: 500;
+                line-height: 1.6;
+            }
+        }
+        .type-text {
+            box-shadow: $boxShadow;
+            .input {
+                position: relative;
+                background-color: $whiteColor;
+                text-align: left;
+                width: 100%;
+                padding: 20px;
+                border: none {
+                    bottom: 2px solid $mainColor;
+                };
+                box-shadow: $boxShadow;
+                &:focus {
+                    outline: none;
+                }
+                &::before {
+                    position: absolute;
+                    content: "Type text...";
+                    color: #222;
+                    pointer-events: none;
+                }
+                &:not(:empty)::before {
+                    content: "";
+                }
+            }
+        }
+    }
+    footer {
+        text-align: left;
+        font-weight: 600;
+        p {
+            a {
+                color: $mainColor;
+            }
+        }
+    }
+}
