@@ -1,26 +1,53 @@
-# speed-test-game
-Speed test game using typescript
 
-- Init npm project [package.json]<br>
+# Speed Test Game
+
+A typing speed test game built with TypeScript, Pug.js, and Sass.
+
+## Getting Started
+
+### 1. Initialize the project
+
+```bash
 npm init -y
+```
 
-- Install tools [Pug.js & SASS & Typescript] with concurrently<br>
-npm install -D pug-cli sass typescript concurrently
+### 2. Install development tools
 
-- Add watch in package.json to execuxtion and watching all files at the same time<br>
-![Image](https://github.com/user-attachments/assets/a52bf544-20e1-4f87-8e37-13cb0c43742a)
-"watch": "concurrently \"pug src/pug/views --out dist --watch -P --basedir src/pug\" \"sass --watch src/styles:dist/styles --load-path=src/styles\" \"tsc --watch\""
+```bash
+npm install -D pug-cli sass typescript concurrently normalize.css
+```
 
-- Install normalize<br>
-npm install normalize.css
+### 3. Create tsconfig.json
 
-- Create Typescript config file<br>
+```bash
 npx tsc --init
+```
 
-- Change rootDir to ["./src/scripts"] & outDir to ["./dist/scripts"]<br>
-![Image](https://github.com/user-attachments/assets/a1a0db1e-6573-4d89-bf4b-f9d4bd19c9cd)
+Then update `tsconfig.json`:
 
-- Watch all files<br>
+```json
+{
+  "rootDir": "./src/scripts",
+  "outDir": "./dist/scripts"
+}
+```
+
+### 4. Add watch script to package.json
+
+Add this inside the `"scripts"` section:
+
+```json
+"watch": "concurrently \"pug src/pug/views --out dist --watch -P --basedir src/pug\" \"sass --watch src/styles:dist/styles --load-path=src/styles\" \"tsc --watch\""
+```
+
+### 5. Start watching files
+
+```bash
 npm run watch
+```
 
-<img width="1353" height="849" alt="Image" src="https://github.com/user-attachments/assets/d0a5849d-a7b4-4ddd-81ff-17c744380c6f" />
+---
+
+## Preview
+
+![Preview](https://github.com/user-attachments/assets/d0a5849d-a7b4-4ddd-81ff-17c744380c6f)
