@@ -62,8 +62,8 @@ function handleText(event: "paste" | "drop") {
         e.preventDefault();
     });
 }
-// handleText("paste");
-// handleText("drop");
+handleText("paste");
+handleText("drop");
 
 function gameLogic(): void {
     inputText.textContent = "";
