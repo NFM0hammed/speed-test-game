@@ -48,8 +48,8 @@ function handleText(event) {
         e.preventDefault();
     });
 }
-handleText("paste");
-handleText("drop");
+// handleText("paste");
+// handleText("drop");
 function gameLogic() {
     inputText.textContent = "";
     // Check every 1000 millisecond if there's any change
@@ -72,26 +72,26 @@ function gameLogic() {
             // Show the next text
             paragraph.innerHTML = data[activeCurrenrtLevelElement].texts[++text];
             inputText.textContent = "";
-        }
-        // You're completed the current level
-        if (data[activeCurrenrtLevelElement].texts.length === text) {
-            // Remove time alert after reset time
-            if (!lastLevelElement.classList.contains(activeCurrenrtLevelElement)) {
-                time.classList.remove("time-alert");
+            // You're completed the current level
+            if (Number(getNumberOfTexts.innerHTML) === 0) {
+                // Remove time alert after reset time
+                if (!lastLevelElement.classList.contains(activeCurrenrtLevelElement)) {
+                    time.classList.remove("time-alert");
+                }
+                clearInterval(begin);
+                // You're completed all levels so, you're win
+                if (lastLevelElement.classList.contains(activeCurrenrtLevelElement) && data[activeCurrenrtLevelElement].texts[data[activeCurrenrtLevelElement].texts.length - 1]) {
+                    levelElement.classList.remove("active");
+                    levelElement.classList.add("done");
+                    gameWin.style.display = "block";
+                    paragraph.innerHTML = "";
+                    return false;
+                }
+                // Go to next level after complete the current level
+                nextLevel();
+                // For the start of the new level
+                gameLogic();
             }
-            clearInterval(begin);
-            // You're completed all levels so, you're win
-            if (lastLevelElement.classList.contains(activeCurrenrtLevelElement) && data[activeCurrenrtLevelElement].texts[data[activeCurrenrtLevelElement].texts.length - 1]) {
-                levelElement.classList.remove("active");
-                levelElement.classList.add("done");
-                gameWin.style.display = "block";
-                paragraph.innerHTML = "";
-                return false;
-            }
-            // Go to next level after complete the current level
-            nextLevel();
-            // For the start of the new level
-            gameLogic();
         }
     }, 1000);
 }
